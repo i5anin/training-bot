@@ -1,7 +1,7 @@
 import { Injectable, OnModuleInit, OnModuleDestroy } from "@nestjs/common";
 import { Bot, Context } from "grammy";
 import { config } from "dotenv";
-import { registerCommands } from "@/features/commands/lead-form.commands";
+import {registerCommands} from "@/commands/workout.commands";
 
 config();
 
