@@ -1,7 +1,7 @@
-import type { WorkoutSession } from "@/domain/workout.types";
+import type { WorkoutSession } from '@/domain/workout.types';
 
 export interface WorkoutSessionRepository {
-    get(chatId: number): WorkoutSession | null;
-    save(chatId: number, session: WorkoutSession): void;
-    remove(chatId: number): void;
+  get(chatId: number): WorkoutSession | null;
+  save(chatId: number, session: WorkoutSession): void;
+  remove(chatId: number): void;
 }

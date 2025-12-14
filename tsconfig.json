@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noUnusedImports": true,
+    "noUnusedParameters": false,
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,

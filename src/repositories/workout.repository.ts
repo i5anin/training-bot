@@ -1,5 +1,5 @@
-import type { Workout } from "@/domain/workout.types";
+import type { Workout } from '@/domain/workout.types';
 
 export interface WorkoutRepository {
-    save(chatId: number, workout: Workout): void;
+  save(chatId: number, workout: Workout): void;
 }
