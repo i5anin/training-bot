@@ -5,13 +5,14 @@ import tsPlugin from '@typescript-eslint/eslint-plugin';
 import prettier from 'eslint-plugin-prettier';
 import jsdoc from 'eslint-plugin-jsdoc';
 import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
     {
         ignores: ['eslint.config.mjs'],
     },
-    js.configs.recommended,
+    ...tseslint.configs.recommended,
     {
         files: ['**/*.ts', '**/*.tsx'],
         languageOptions: {
