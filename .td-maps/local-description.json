@@ -1,0 +1,85 @@
+{
+  "name": "project local mappings",
+  "version": "1.0.0",
+  "description": "Current project path and file mapping configuration",
+  "author": "Sergey",
+  "builtinMappingsEnabled": true,
+  "language": "ru",
+  "mappings": {
+    "files": {
+      "src/main.ts": "Точка входа приложения (composition root)",
+
+      "src/app/index.ts": "Инициализация и конфигурация приложения",
+
+      "src/commands/workout.commands.ts": "Регистрация и обработка CLI/Telegram команд",
+
+      "src/domain/workout.types.ts": "Доменные типы и контракты тренировки",
+      "src/domain/workout.split-keywords.ts": "Доменная логика разбора ключевых слов",
+
+      "src/parser/workout-line.parser.ts": "Парсинг строки тренировки в доменную модель",
+
+      "src/formatters/workout.formatter.ts": "Форматирование вывода тренировки",
+
+      "src/services/workout-session.service.ts": "Бизнес-логика сессии тренировки",
+
+      "src/repositories/workout.repository.ts": "Контракт репозитория тренировок",
+      "src/repositories/workout-session.repository.ts": "Контракт репозитория сессий",
+
+      "src/repositories/in-memory/in-memory-workout.repository.ts": "In-memory реализация репозитория тренировок",
+      "src/repositories/in-memory/in-memory-workout-session.repository.ts": "In-memory реализация репозитория сессий",
+
+      "src/shared/api/axios.instance.ts": "HTTP клиент (axios instance)",
+      "src/shared/api/commands.api.ts": "API для отправки команд",
+      "src/shared/api/index.ts": "Экспорт API слоя",
+
+      "src/config/env.ts": "Конфигурация окружения",
+
+      "src/utils/colorize.ts": "Утилиты форматирования вывода",
+
+      "src/ui/workout.keyboards.ts": "UI-клавиатуры (Telegram)"
+    },
+
+    "packages": {},
+
+    "fileMatch": {
+      "main.ts": "Точка входа приложения",
+      "*.commands.ts": "Команды (controller layer)",
+      "*.service.ts": "Сервисы (use cases / business logic)",
+      "*.repository.ts": "Контракты репозиториев",
+      "in-memory-*.repository.ts": "In-memory реализации хранилищ",
+      "*.formatter.ts": "Форматирование вывода",
+      "*.parser.ts": "Парсинг входных данных",
+      "*.types.ts": "Типы и доменные контракты"
+    },
+
+    "packageMatch": {
+      "src/app": "Инициализация и конфигурация приложения",
+      "src/commands": "Контроллеры команд",
+      "src/domain": "Доменная модель",
+      "src/parser": "Парсинг и трансформация входных данных",
+      "src/formatters": "Форматирование вывода",
+      "src/services": "Use cases / бизнес-логика",
+      "src/repositories": "Контракты репозиториев",
+      "src/repositories/in-memory": "In-memory инфраструктура",
+      "src/shared": "Общая инфраструктура",
+      "src/shared/api": "API слой",
+      "src/config": "Конфигурация",
+      "src/utils": "Утилиты",
+      "src/ui": "UI слой"
+    },
+
+    "filesTextColor": {
+      "main.ts": "#F8BBD0",
+      "src/services/workout-session.service.ts": "#E3F2FD"
+    },
+
+    "packagesTextColor": {
+      "src/app": "#B39DDB",
+      "src/domain": "#FFCC80",
+      "src/services": "#90CAF9",
+      "src/repositories": "#A5D6A7",
+      "src/shared": "#EF9A9A",
+      "src/ui": "#80DEEA"
+    }
+  }
+}
