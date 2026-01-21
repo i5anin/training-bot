@@ -1,0 +1,63 @@
+%% [MermaidChart: 02158bc1-48a5-41ab-80c1-d4c36887c597]
+flowchart LR
+    main["main.ts<br/>Точка входа"]
+
+    subgraph app["Приложение"]
+        app_module["app.module.ts<br/>Корневой модуль Nest"]
+        bot_module["bot.module.ts<br/>DI Telegram бота"]
+        config["env.schema.ts<br/>Валидация окружения"]
+    end
+
+    subgraph features["Фича trainings"]
+        trainings_module["trainings.module.ts<br/>Композиция фичи"]
+    end
+
+    subgraph presentation["Presentation слой"]
+        update_handler["trainings.update-handler.ts<br/>Обработка команд и текста"]
+    end
+
+    subgraph application["Application слой"]
+        flow_service["training-flow.service.ts<br/>FSM имя → количество"]
+        use_cases["training-use-cases.service.ts<br/>Use cases"]
+    end
+
+    subgraph domain["Domain слой"]
+        entity["training.entity.ts<br/>TrainingEntity"]
+        name_vo["training.name.ts<br/>Value Object имени"]
+        count_vo["training.count.ts<br/>Value Object количества"]
+    end
+
+    subgraph infrastructure["Infrastructure слой"]
+        repo["training.repository.ts<br/>JSON репозиторий"]
+        storage["json-file.storage.ts<br/>Atomic FS IO"]
+        dbfile["trainings.json<br/>Файл данных"]
+    end
+
+    subgraph bot["Telegram bot"]
+        provider["bot.provider.ts<br/>grammy + session"]
+    end
+
+    main --> app_module
+    app_module --> config
+    app_module --> trainings_module
+    app_module --> bot_module
+
+    bot_module --> provider
+    provider --> update_handler
+
+    trainings_module --> update_handler
+    trainings_module --> flow_service
+    trainings_module --> use_cases
+    trainings_module --> repo
+    trainings_module --> storage
+
+    update_handler --> flow_service
+    update_handler --> use_cases
+
+    flow_service --> entity
+    flow_service --> name_vo
+    flow_service --> count_vo
+
+    use_cases --> repo
+    repo --> storage
+    storage --> dbfile

@@ -1,0 +1,21 @@
+sequenceDiagram
+    autonumber
+    participant U as Пользователь
+    participant B as Telegram Bot (grammy)
+    participant S as TrainingFlowService
+    participant R as TrainingRepository (JSON)
+    participant F as FS (trainings.json)
+
+    U->>B: Текст "Жим лёжа"
+    B->>S: onText(name)
+    S-->>B: Запросить количество
+    B-->>U: "Сколько раз? (целое число)"
+
+    U->>B: "5"
+    B->>S: onCount(5)
+    S->>R: upsertByName("Жим лёжа", 5)
+    R->>F: read trainings.json
+    R->>F: atomic write trainings.json
+    R-->>S: updated item
+    S-->>B: сформировать ответ
+    B-->>U: "Готово: Жим лёжа +5 (итого: 5)"
